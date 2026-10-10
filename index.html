@@ -123,7 +123,7 @@
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .arabic-text {
+        h1, h2, h3, h4, .arabic-text {
             font-family: 'Cairo', sans-serif;
         }
 
@@ -133,11 +133,11 @@
             width: 100%;
             background: rgba(20, 23, 32, 0.95);
             backdrop-filter: blur(12px);
-            padding: 1rem 2rem;
+            padding: clamp(0.3rem, 1.5vw, 0.8rem) 2rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: clamp(0.5rem, 2vw, 1.5rem);
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
@@ -149,9 +149,10 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             transition: color 0.3s ease, text-shadow 0.3s ease;
             position: relative;
+            padding: 0.2rem 0;
         }
 
         nav a::after {
@@ -159,7 +160,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: -2px;
             left: 50%;
             background-color: var(--accent);
             transition: all 0.3s ease;
@@ -176,79 +177,72 @@
         }
 
         header {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 8rem 1rem 2rem;
+            padding: clamp(4rem, 6vw, 6rem) 1rem 1rem;
             background: radial-gradient(circle at center, rgba(42, 47, 58, 0.4) 0%, rgba(20, 23, 32, 0.8) 100%);
             position: relative;
         }
 
         .logo-img {
-            width: clamp(120px, 20vw, 200px);
-            height: clamp(120px, 20vw, 200px);
+            width: clamp(90px, 15vw, 160px);
+            height: clamp(90px, 15vw, 160px);
             object-fit: contain;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
             border-radius: 50%;
             border: 4px solid var(--accent);
-            padding: 15px;
+            padding: 10px;
             background: rgba(26, 30, 41, 0.8);
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1);
             backdrop-filter: blur(5px);
         }
 
         .title-arabic {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 0.2rem;
+            font-size: clamp(1.8rem, 6vw, 3.8rem);
+            margin-bottom: 0.1rem;
             color: var(--accent);
             text-shadow: 0 5px 15px rgba(0,0,0,0.6);
-            letter-spacing: 2px;
-        }
-
-        .title-tifinagh {
-            font-size: clamp(1rem, 3vw, 1.5rem);
-            letter-spacing: 8px;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
+            letter-spacing: 1px;
         }
 
         .title-french {
-            font-size: clamp(1.5rem, 5vw, 2.8rem);
+            font-size: clamp(1.1rem, 4vw, 2.4rem);
             font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
             text-transform: uppercase;
         }
 
         .theme {
-            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-size: clamp(0.9rem, 3vw, 1.6rem);
             color: var(--accent);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
         
         .theme-french {
-            font-size: clamp(1rem, 3vw, 1.6rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(0.8rem, 2vw, 1.4rem);
+            margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
             letter-spacing: 1px;
         }
 
         .dates {
-            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+            font-size: clamp(0.75rem, 1.8vw, 1.1rem);
             color: var(--text-main);
             max-width: 90%;
-            width: 600px;
-            margin-bottom: 3rem;
-            padding: 15px;
+            width: 550px;
+            margin-bottom: clamp(1rem, 2.5vw, 2.5rem);
+            padding: clamp(8px, 1.5vw, 12px);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 5px;
             background: rgba(0, 0, 0, 0.2);
         }
 
         section {
-            padding: 5rem 1.5rem;
+            padding: clamp(2rem, 3.5vw, 3.5rem) 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
@@ -257,17 +251,17 @@
         .about-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: clamp(1rem, 2vw, 1.5rem);
             align-items: center;
             justify-content: center;
-            margin-bottom: 3rem;
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .about-content {
             flex: 1 1 100%;
             max-width: 100%;
             background: rgba(26, 30, 41, 0.7);
-            padding: 2rem;
+            padding: clamp(1.2rem, 2vw, 2.5rem);
             border-radius: 10px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             position: relative;
@@ -276,14 +270,13 @@
         @media (min-width: 768px) {
             .about-content {
                 flex: 1;
-                padding: 3rem;
             }
         }
 
         .about-content::before {
             content: '';
             position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
             border: 1px dashed rgba(212, 175, 55, 0.2);
             pointer-events: none;
             border-radius: 5px;
@@ -291,7 +284,7 @@
 
         .poster-img {
             width: 100%;
-            max-width: 420px;
+            max-width: 380px;
             border-radius: 10px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6);
             border: 3px solid var(--accent);
@@ -301,15 +294,15 @@
         }
 
         .poster-img:hover {
-            transform: scale(1.03) translateY(-10px);
+            transform: scale(1.03) translateY(-8px);
             box-shadow: 0 30px 50px rgba(212, 175, 55, 0.2);
         }
 
         .about-text {
-            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            font-size: clamp(0.85rem, 1.8vw, 1.05rem);
             text-align: justify;
-            margin-bottom: 1.8rem;
-            line-height: 1.8;
+            margin-bottom: clamp(0.8rem, 2vw, 1.5rem);
+            line-height: 1.7;
             position: relative;
             z-index: 2;
         }
@@ -318,8 +311,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 3rem;
+            gap: 0.6rem;
+            margin-top: clamp(1rem, 2.5vw, 2rem);
             position: relative;
             z-index: 2;
         }
@@ -328,14 +321,14 @@
             .actions {
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 1.5rem;
+                gap: 1rem;
             }
         }
 
         .btn {
             background-color: transparent;
             color: var(--accent);
-            padding: 1rem 1.5rem;
+            padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(0.8rem, 1.5vw, 1.2rem);
             border-radius: 5px;
             text-decoration: none;
             font-weight: 700;
@@ -347,7 +340,7 @@
             overflow: hidden;
             cursor: pointer;
             text-align: center;
-            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
         }
 
         .btn::before {
@@ -376,9 +369,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 0.8rem;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 3rem;
+            gap: 0.4rem;
+            font-size: clamp(1.3rem, 3.5vw, 2.6rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
             color: var(--accent);
             text-align: center;
             width: 100%;
@@ -388,35 +381,36 @@
 
         @media (min-width: 768px) {
             .section-title {
-                margin-bottom: 5rem;
+                margin-bottom: 3rem;
                 letter-spacing: 3px;
             }
         }
 
         .section-title::after {
             content: "✧ ✦ ✧";
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.8rem, 1.8vw, 1.1rem);
             color: var(--text-muted);
-            letter-spacing: 10px;
-            margin-right: -10px;
+            letter-spacing: clamp(4px, 1.2vw, 8px);
+            margin-right: calc(clamp(4px, 1.2vw, 8px) * -1);
         }
 
         @media (min-width: 768px) {
             .section-title::after {
-                letter-spacing: 20px;
-                margin-right: -20px;
+                letter-spacing: 15px;
+                margin-right: -15px;
             }
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: clamp(0.8rem, 1.5vw, 1.2rem);
         }
 
         @media (min-width: 768px) {
             .gallery {
-                gap: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.5rem;
             }
         }
 
@@ -459,48 +453,54 @@
 
         .sponsors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: clamp(0.8rem, 2vw, 1.2rem);
             align-items: stretch;
         }
 
         @media (min-width: 768px) {
             .sponsors-grid {
-                gap: 3rem;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2rem;
             }
         }
 
         .sponsor-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            color: #111;
-            padding: 2rem 1.5rem;
+            background: var(--accent);
+            color: var(--bg-main);
+            padding: clamp(0.8rem, 1.5vw, 1.5rem) 1.2rem;
             border-radius: 8px;
             text-align: center;
             font-weight: 700;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             transition: all 0.4s ease;
             border: 2px solid transparent;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
             height: 100%;
         }
 
         .sponsor-card img {
             max-width: 140px;
-            max-height: 70px;
+            max-height: 80px;
             width: 100%;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
 
+        @media (min-width: 768px) {
+            .sponsor-card img {
+                max-width: 180px;
+                max-height: 100px;
+            }
+        }
+
         .sponsor-card:hover {
             transform: scale(1.05);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            border-color: #fff;
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.4);
         }
 
         .sponsor-card:hover img {
@@ -510,21 +510,23 @@
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1.2rem;
             justify-content: center;
             align-items: stretch;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         @media (min-width: 768px) {
             .contact-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 2.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.2rem;
             }
         }
 
         .contact-card {
             background: rgba(26, 30, 41, 0.85);
-            padding: 2rem 1.5rem;
+            padding: clamp(1rem, 1.5vw, 1.2rem);
             border-radius: 10px;
             text-align: center;
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -538,28 +540,28 @@
 
         @media (min-width: 768px) {
             .contact-card {
-                padding: 3rem 2rem;
+                padding: 1.5rem 1rem;
             }
         }
 
         .contact-card::before {
             content: '';
             position: absolute;
-            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            top: 6px; left: 6px; right: 6px; bottom: 6px;
             border: 1px solid rgba(212, 175, 55, 0.1);
             pointer-events: none;
         }
 
         .contact-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.5), 0 0 12px rgba(212, 175, 55, 0.2);
         }
 
         .email-box {
             grid-column: 1 / -1;
             max-width: 100%;
-            margin: 1rem auto 0;
+            margin: clamp(0.3rem, 1vw, 0.8rem) auto 0;
             width: 100%;
             background: rgba(212, 175, 55, 0.08);
             border: 2px solid var(--accent);
@@ -568,34 +570,34 @@
 
         @media (min-width: 768px) {
             .email-box {
-                max-width: 600px;
+                max-width: 550px;
             }
         }
 
         .contact-card h3 {
             color: var(--accent);
-            margin-bottom: 1.2rem;
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            margin-bottom: 0.6rem;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
             letter-spacing: 1px;
         }
 
         .contact-card p {
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-            margin-bottom: 0.5rem;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            margin-bottom: 0.4rem;
         }
 
         .nav-arrow {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            margin: 3rem auto 0;
+            width: clamp(35px, 6vw, 45px);
+            height: clamp(35px, 6vw, 45px);
+            margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
             border: 2px solid var(--accent);
             border-radius: 50%;
             color: var(--accent);
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             animation: bounce 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
             transition: all 0.3s;
             background: rgba(20, 23, 32, 0.8);
@@ -603,30 +605,30 @@
 
         @media (min-width: 768px) {
             .nav-arrow {
-                width: 60px;
-                height: 60px;
-                margin: 4rem auto 0;
-                font-size: 1.8rem;
+                width: 50px;
+                height: 50px;
+                margin: 3rem auto 0;
+                font-size: 1.5rem;
             }
         }
 
         .nav-arrow:hover {
             background: var(--accent);
             color: var(--bg-main);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
             animation-play-state: paused;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-20px); }
-            60% { transform: translateY(-10px); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
         }
 
         .fade-in {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(25px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .fade-in.visible {
@@ -641,15 +643,15 @@
             color: var(--bg-main);
             text-align: center;
             border-radius: 30px;
-            padding: 16px 24px;
+            padding: 14px 20px;
             position: fixed;
             z-index: 9999;
             left: 50%;
-            bottom: 30px;
+            bottom: 25px;
             transform: translateX(-50%);
-            font-size: 1.1rem;
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
             font-weight: 700;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             opacity: 0;
             transition: opacity 0.4s, bottom 0.4s, visibility 0.4s;
             letter-spacing: 1px;
@@ -658,29 +660,110 @@
         .toast.show {
             visibility: visible;
             opacity: 1;
-            bottom: 50px;
+            bottom: 40px;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-secondary);
+            padding: clamp(1.8rem, 4vw, 3.5rem);
+            border-radius: 10px;
+            border: 1px solid var(--accent);
+            max-width: 900px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content p {
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .modal-content ul {
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+        }
+
+        .modal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            color: var(--accent);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: transform 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.2);
         }
 
         footer {
             background: rgba(15, 17, 24, 0.95);
             text-align: center;
-            padding: 3rem 1.5rem;
-            margin-top: 3rem;
+            padding: clamp(1.5rem, 4vw, 2.5rem) 1.5rem;
+            margin-top: clamp(1.5rem, 4vw, 2.5rem);
             border-top: 1px solid rgba(212, 175, 55, 0.3);
             position: relative;
         }
 
         @media (min-width: 768px) {
             footer {
-                padding: 4rem 2rem;
-                margin-top: 5rem;
+                padding: 2.5rem 2rem;
+                margin-top: 3.5rem;
             }
         }
         
         footer p {
             color: var(--text-muted);
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
             letter-spacing: 1px;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            text-align: left;
+            color: var(--text-main);
+        }
+        .rubric-table th, .rubric-table td {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px;
+        }
+        .rubric-table th {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .rubric-table-ar {
+            text-align: right;
         }
     </style>
 </head>
@@ -708,7 +791,7 @@
     <header id="home">
         <img src="./logos/ASTRONOMY-FESTIVAL-LOGO-1111.png" alt="Logo du Festival d'Astronomie d'Ifrane" class="logo-img fade-in">
         <div class="title-arabic arabic-text fade-in">مهرجان إفران للفلك</div>
-        <div class="title-french fade-in">FESTIVAL D'ASTRONOMIE D'IFRANE</div>
+        <div class="title-french fade-in">FESTIVAL D'ASTRONOMIE d'IFRANE</div>
         <div class="theme arabic-text fade-in">الكسوف والخسوف بين العلم والإرث</div>
         <div class="theme-french fade-in">Les Éclipses: Entre Science et Héritage</div>
         <div class="dates fade-in">14ème Édition <br> Du 12 au 16 novembre 2026 à l'Université Al Akhawayn, Ifrane.</div>
@@ -729,8 +812,8 @@
                 </p>
                 <div class="actions">
                     <a class="btn" onclick="showToast(event)">Réserver un ticket</a>
-                    <a class="btn" onclick="showToast(event)">Compétition d'art oratoire</a>
-                    <a class="btn" onclick="showToast(event)">Compétition de montage vidéo</a>
+                    <a class="btn" onclick="openLangModal('oratoire', event)">Compétition d'art oratoire</a>
+                    <a class="btn" onclick="openLangModal('video', event)">Compétition de montage vidéo</a>
                 </div>
             </div>
             
@@ -780,28 +863,15 @@
     <div class="sponsors-grid">
         <div class="sponsor-card fade-in">
             <img src="./logos/faa1ec3f094c100ded8a1ffeaf9bc6ff.webp" alt="Logo de l'Université Al Akhawayn">
-            <div>
-                <span class="arabic-text" style="color: #d4af37;">جامعة الأخوين</span><br>
-                <span style="color: #d4af37;">AL AKHAWAYN UNIVERSITY</span>
-            </div>
         </div>
         <div class="sponsor-card fade-in">
             <img src="./logos/CITIBG.png" alt="Logo de CITI">
-            <div>
-                <span style="color: #d4af37;">CITI</span> <span class="arabic-text" style="color: #d4af37;">سيتي</span>
-            </div>
         </div>
         <div class="sponsor-card fade-in">
             <img src="./logos/Attarik.jpeg" alt="Logo de la fondation ATTARIK">
-            <div style="color: #d4af37;">
-                ATTARIK FOUNDATION
-            </div>
         </div>
         <div class="sponsor-card fade-in">
             <img src="./logos/582006292_18108491443622937_3926581902629927386_n.jpg" alt="Logo de SAO">
-            <div style="color: #d4af37;">
-                SAO
-            </div>
         </div>
     </div>
 
@@ -814,25 +884,27 @@
             <div class="contact-card fade-in">
                 <h3>Directeur du Festival</h3>
                 <p>Dr. Hassane Darhmaoui</p>
-                <p style="color: var(--text-muted); font-family: monospace; font-size: 1.2rem; margin: 10px 0;">+212661063134</p>
-                <p><a href="mailto:someone@example.com" style="color: #ffffff;">h.darhmaoui@aui.ma</a></p>
+                <p style="color: var(--text-muted); font-family: monospace; font-size: clamp(0.9rem, 1.8vw, 1.1rem); margin: 8px 0;">+212661063134</p>
+                <p><a href="mailto:h.darhmaoui@aui.ma" style="color: #ffffff;">h.darhmaoui@aui.ma</a></p>
             </div>
             <div class="contact-card fade-in">
                 <h3>Coordinatrice du Festival</h3>
                 <p>Reem Sendide</p>
-                <p style="color: var(--text-muted); font-family: monospace; font-size: 1.2rem; margin: 10px 0;">+212655073540</p>
-                <p><a href="mailto:someone@example.com" style="color: #ffffff;">R.sendide@aui.ma</a></p>
+                <p style="color: var(--text-muted); font-family: monospace; font-size: clamp(0.9rem, 1.8vw, 1.1rem); margin: 8px 0;">+212655073540</p>
+                <p><a href="mailto:R.sendide@aui.ma" style="color: #ffffff;">R.sendide@aui.ma</a></p>
             </div>
             <div class="contact-card fade-in">
                 <h3>Coordinateur du Festival</h3>
                 <p>Yahya Chami</p>
-                <p style="color: var(--text-muted); font-family: monospace; font-size: 1.2rem; margin: 10px 0;">+212659143793</p>
-                <p><a href="mailto:someone@example.com" style="color: #ffffff;">Y.chami@aui.ma</a></p>
+                <p style="color: var(--text-muted); font-family: monospace; font-size: clamp(0.9rem, 1.8vw, 1.1rem); margin: 8px 0;">+212659143793</p>
+                <p><a href="mailto:Y.chami@aui.ma" style="color: #ffffff;">Y.chami@aui.ma</a></p>
             </div>
             
             <div class="contact-card email-box fade-in">
                 <h3>Email Officiel</h3>
-                <p><a href="mailto:someone@example.com" style="color: #ffffff;">Astronomyfestivalifrane@gmail.com</a></p>
+                <p><a href="mailto:AstronomyFestival@aui.ma" style="color: #ffffff;">AstronomyFestival@aui.ma</a></p>
+                <p style="margin: 0.6rem 0; color: var(--text-muted); font-weight: bold;">ou</p>
+                <p><a href="mailto:Astronomyfestivalifrane@gmail.com" style="color: #ffffff;">Astronomyfestivalifrane@gmail.com</a></p>
             </div>
         </div>
 
@@ -843,12 +915,488 @@
         <p>© 2026 Festival d'Astronomie d'Ifrane. Tous droits réservés.</p>
     </footer>
 
+    <div id="langModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-btn" onclick="closeModal('langModal')">×</span>
+            <h3 style="color: var(--accent); margin-bottom: 2rem; font-size: clamp(1.2rem, 3vw, 1.8rem);">Choisissez votre langue</h3>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                <button class="btn" onclick="selectLanguage('fr')">Français</button>
+                <button class="btn arabic-text" style="font-size: 1.1rem; padding: 0.5rem 1.5rem;" onclick="selectLanguage('ar')">العربية</button>
+                <button class="btn" onclick="selectLanguage('en')">English</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORATOIRE MODALS -->
+    <div id="oratoireModal-ar" class="modal-overlay">
+        <div class="modal-content" dir="rtl">
+            <span class="close-btn" style="right: auto; left: 15px;" onclick="closeModal('oratoireModal-ar')">×</span>
+            <h3 class="arabic-text" style="color: var(--accent); margin-bottom: 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); text-align: right;">مسابقة الخطابة</h3>
+            
+            <p class="arabic-text" style="text-align: right;">كجزء من الدورة الرابعة عشرة لمهرجان علم الفلك: «الكسوف: بين العلم والتراث»، يسعدنا أن نعلن أن باب التقديم لمسابقة الخطابة مفتوح الآن! هذه هي فرصتك لعرض إبداعك وأصالتك وشغفك وتفسيرك لموضوع هذه الدورة. إذا تم اختيارك مسبقًا للمشاركة، فسيتعين عليك دفع رسوم غير قابلة للاسترداد بقيمة 50 درهمًا مغربيًا لتأمين مكانك. يمكنك الوصول أدناه إلى أحد نماذج التسجيل الثلاثة، وتنقسم المشاركات إلى فئات الإنجليزية والفرنسية والعربية (يجوز لكل مشارك الدخول في فئة واحدة فقط). سيقدم ما مجموعه 60 مشاركًا عروضهم للجمهور، وسيعتلي ثلاثة متأهلين للتصفيات النهائية - مصنفين حسب اللغة والفئة العمرية - المنصة! سيتم تقديم الجوائز! سيحصل جميع المشاركين الذين تم اختيارهم مسبقًا على شهادة مشاركة. يرجى قراءة اللوائح وشبكة التقييم المتاحة على هذه الصفحة بعناية قبل إرسال نصك وعرضك التقديمي. يُغلق باب التقديم في 30 أكتوبر 2026، الساعة 23:59.</p>
+            
+            <h4 class="arabic-text" style="text-align: right; color: var(--accent); margin-top: 1.5rem; margin-bottom: 0.5rem;">لوائح مسابقة الخطابة:</h4>
+            <div style="margin-bottom: 1.5rem;">
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن تتراوح مدة العروض التقديمية بين 4 و 5 دقائق ؛ وسيتم خصم نقاط عن كل 15 ثانية تزيد عن المدة المحددة أو تقل عنها.</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يُقبل تقديم الطلبات باللغة الإنجليزية أو الفرنسية أو العربية (يرجى الرجوع إلى النموذج المخصص لإرسال طلبك).</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن تكون جميع الأعمال المقدمة أصلية (النص والعرض التقديمي). <strong style="color: red; font-weight: bold;">يحظر تماما استخدام أدوات الذكاء الاصطناعي التوليدي.</strong></p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب إدراج جميع المراجع المستخدمة في الشريحة الأخيرة من العرض التقديمي الخاص بكم.</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن تتناول العروض التقديمية الموضوع التالي: «الكسوف بين العلم والتراث».</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">قد يؤدي أي طلب ترشيح لا يلتزم بهذه اللوائح إلى الاستبعاد من المسابقة.</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن يكون المشاركون الذين تم اختيارهم مسبقًا متاحين يوم السبت 14 نوفمبر 2026، من الساعة 9 صباحًا حتى 3 مساءً.</p>
+            </div>
+            
+            <h4 class="arabic-text" style="text-align: right; color: var(--accent); margin-bottom: 1rem;">شبكة التقييم</h4>
+            <p class="arabic-text" style="text-align: right;">سيتم تقييم خطابك من قبل لجنة التحكيم الرسمية وفقًا للمعايير الواردة أدناه. تعكس قائمة المعايير الجوانب الرئيسية التي تؤخذ في الاعتبار أثناء التقييم، ويبلغ إجمالي الدرجات 45 نقطة. يرجى مراجعة المعايير بعناية قبل إرسال خطابك.</p>
+            
+            <table class="rubric-table rubric-table-ar arabic-text">
+                <thead>
+                    <tr>
+                        <th>المعيار</th>
+                        <th>محور التقييم</th>
+                        <th>الوزن</th>
+                        <th>الدرجة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. مدى ملاءمة المادة وإتقانها</td>
+                        <td>مدى صلة المحتوى بالموضوع، ودقة المحتوى وفهم المحتوى</td>
+                        <td>x2</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>2. إتقان اللغة</td>
+                        <td>النطق واللفظ الدقيقان. إتقان جيد للمفردات وقواعد اللغة.</td>
+                        <td>x2</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>3. لغة الجسد ونبرة الصوت</td>
+                        <td>الإيماءات، ووضعية الجسم، والتواصل البصري.</td>
+                        <td>x1</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>4. الإبداع والأصالة</td>
+                        <td>أصالة المفهوم، وأسلوب سرد القصة، والنهج الفني والأفكار المبتكرة.</td>
+                        <td>x2</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>5. جودة العرض التقديمي</td>
+                        <td>التكوين البصري والتماسك، و فعالية الدعم المقدم للخطاب</td>
+                        <td>x1</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>6. المدة</td>
+                        <td>الالتزام بشرط المدة التي تتراوح بين 4 و 5 دقائق مع خصم نقاط عن كل 15 ثانية تزيد أو تقل عن النطاق المحدد.</td>
+                        <td>x1</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="https://forms.gle/2EGDgiC5s7Mu1uSN8" target="_blank" class="btn arabic-text" style="display: inline-block; font-size: 1.1rem; width: 100%; margin-top: 1rem;">الانتقال إلى النموذج</a>
+        </div>
+    </div>
+
+    <div id="oratoireModal-fr" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('oratoireModal-fr')">×</span>
+            <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); text-align: left;">Compétition d'art oratoire</h3>
+            
+            <p style="text-align: left;">Dans le cadre de la 14ème Édition du Festival d'Astronomie «Éclipses: Entre science et Héritage», nous avons le plaisir d'annoncer que les inscriptions au Concours d'Art Oratoire sont désormais ouvertes!</p>
+            <p style="text-align: left;">C'est l'occasion de mettre en valeur votre créativité, originalité, passion et votre interprétation du thème de cette édition.</p>
+            <p style="text-align: left;">Si vous êtes présélectionné pour participer, vous devrez régler des frais non remboursables de 50 MAD pour confirmer votre inscription.</p>
+            <p style="text-align: left;">Vous trouverez ci-dessous les formulaires d'inscription; et les participations sont réparties en trois catégories: Anglais, Français et Arabe (Chaque participant ne peut concourir que dans une seule catégorie).</p>
+            <p style="text-align: left;">Un total de 60 participants présenteront au public, et trois finalistes -par langue et fourchette d'âge- monteront sur le podium! Des prix seront remis! Tous les participants présélectionnés recevront un certificat de participation.</p>
+            <p style="text-align: left;">Veuillez lire attentivement le règlement du concours et la grille d'évaluation disponibles sur cette page avant de soumettre votre script et diapositives.</p>
+            <p style="text-align: left; margin-bottom: 1.5rem;">La date limite de soumission est fixée au 30 Octobre 2026, à 23h59. Nous avons hâte de découvrir vos créations!</p>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 0.5rem;">RÈGLEMENT DU CONCOURS ORATOIRE :</h4>
+            <ul>
+                <li>Les présentations doivent durer entre 4 et 5 minutes; avec une déduction de points pour chaque tranche de 15 secondes au-dessus ou en-dessous de la fourchette indiquée.</li>
+                <li>Les candidatures sont acceptées en anglais, en français ou en arabe (veuillez vous reporter au formulaire correspondant pour l'envoi de votre candidature).</li>
+                <li>Tous les travaux soumis doivent être originaux (texte et présentation). <strong style="color: red; font-weight: bold;">L'utilisation d'outils d'IA générative est strictement interdite.</strong></li>
+                <li>Toutes les références utilisées doivent être incluses dans la dernière diapositive de votre présentation.</li>
+                <li>Les discours doivent porter sur le thème : &lt;&lt;Éclipses: Entre Science et Héritage&gt;&gt;.</li>
+                <li>Toute candidature ne respectant pas le présent règlement pourra entraîner la disqualification.</li>
+                <li>Les participants présélectionnés doivent être disponibles le samedi 14 novembre 2026, de 9h à 15h.</li>
+            </ul>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 1rem;">Grille d'évaluation</h4>
+            <p style="text-align: left;">Votre discours sera évalué par le jury officiel selon les critères ci-dessous. La grille d'évaluation présente les principaux aspects pris en compte lors de l'évaluation, pour un total de 45 points. Veuillez lire attentivement ces critères avant d'envoyer votre discours.</p>
+            
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterion</th>
+                        <th>Evaluation Focus</th>
+                        <th>Weight</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Pertinence et maîtrise du sujet</td>
+                        <td>Pertinence par rapport au thème, exactitude du contenu et compréhension de celui-ci</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>2. Maîtrise de la langue</td>
+                        <td>Une prononciation et une articulation précises. Une bonne maîtrise du vocabulaire et de la grammaire.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>3. Langage corporel et intonation</td>
+                        <td>Les gestes, la posture et le contact visuel.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>4. Créativité et originalité</td>
+                        <td>Originalité du concept, narration, approche artistique et idées novatrices.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>5. Qualité de la présentation</td>
+                        <td>Composition visuelle, cohérence et efficacité du soutien à l'exposé</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>6. Durée</td>
+                        <td>Respect de la durée requise de 4 à 5 minutes, avec une déduction de points pour chaque tranche de 15 secondes au-dessus ou en dessous de la fourchette indiquée.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="https://forms.gle/brpPBmwQZBLpm64D6" target="_blank" class="btn" style="display: inline-block; width: 100%; margin-top: 1rem;">Accéder au formulaire</a>
+        </div>
+    </div>
+
+    <div id="oratoireModal-en" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('oratoireModal-en')">×</span>
+            <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); text-align: left;">Public Speaking Competition</h3>
+            
+            <p style="text-align: left;">As part of the 14th Edition of the Astronomy Festival: «Eclipses: Between Science and Heritage», we are happy to announce that applications for the Public Speaking Competition are now open!</p>
+            <p style="text-align: left;">This is your opportunity to showcase your creativity, originality, passion, and interpretation of this edition's theme.</p>
+            <p style="text-align: left;">If you get preselected to participate, you will have to pay a nonrefundable fee of 50 MAD to secure your spot.</p>
+            <p style="text-align: left;">You can access below one of the three registration forms, and submissions are divided into English, French, and Arabic categories (Each participant may enter only one category).</p>
+            <p style="text-align: left;">A total of 60 participants will perform for the audience, and three finalists -categorized by language and age group- will take the podium! Prizes will be given! All preselected participants will receive a certificate of participation.</p>
+            <p style="text-align: left;">Please carefully read the regulations and evaluation rubric available on this page before submitting your script and presentation.</p>
+            <p style="text-align: left; margin-bottom: 1.5rem;">Submissions close on October 30th, 2026, at 23:59.</p>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 0.5rem;">PUBLIC SPEAKING COMPETITION REGULATIONS:</h4>
+            <ul>
+                <li>Speeches must be 4-5 minutes long, with points deduction for every 15 seconds above or below the specified range.</li>
+                <li>Submissions are accepted in English, French, or Arabic (please refer to the corresponding form for submission).</li>
+                <li>All submitted work must be original (script & presentation). <strong style="color: red; font-weight: bold;">The use of generative AI tools is strictly prohibited.</strong></li>
+                <li>You must include all references used in the last slide of your presentation</li>
+                <li>Speeches must be relevant to the theme: «Eclipses: Between Science and Heritage»</li>
+                <li>Any submission that violates these regulations may result in disqualification.</li>
+                <li>Preselected participants must be available on Saturday, 14th November 2026, from 9:00 to 15:00.</li>
+            </ul>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 1rem;">Evaluation Rubric</h4>
+            <p style="text-align: left;">Your speech will be evaluated by the official jury according to the criteria below. The rubric reflects the main aspects considered during the evaluation, with a total score of 45 points. Please review the criteria carefully before submitting your speech.</p>
+            
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterion</th>
+                        <th>Evaluation Focus</th>
+                        <th>Weight</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Relevance & Mastery of Material</td>
+                        <td>Relevance to the theme, accuracy of the content, and understanding of the content</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>2. Command of Language</td>
+                        <td>Precise pronunciation and enunciation. Good command of vocabulary and grammar.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>3. Body Language & Tone</td>
+                        <td>Gestures, posture, and eye contact.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>4. Creativity & Originality</td>
+                        <td>Originality of the concept, storytelling, artistic approach, and innovative ideas.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>5. Quality of Presentation</td>
+                        <td>Visual composition, coherence, and effectiveness of support to the speech</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>6. Duration</td>
+                        <td>Respect of the 4-5-minutes requirement with points deduction for every 15 seconds above or below the specified range.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="https://forms.gle/v9dHP7DBMmW8YcxWA" target="_blank" class="btn" style="display: inline-block; width: 100%; margin-top: 1rem;">Proceed to form</a>
+        </div>
+    </div>
+
+    <!-- VIDEO MODALS -->
+    <div id="videoModal-ar" class="modal-overlay">
+        <div class="modal-content" dir="rtl">
+            <span class="close-btn" style="right: auto; left: 15px;" onclick="closeModal('videoModal-ar')">×</span>
+            <h3 class="arabic-text" style="color: var(--accent); margin-bottom: 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); text-align: right;">مسابقة مقاطع الفيديو</h3>
+            
+            <p class="arabic-text" style="text-align: right;">كجزء من الدورة الرابعة عشرة لمهرجان علم الفلك: «الكسوف: بين العلم والتراث»، يسعدنا أن نعلن أن باب التقديم لمسابقة مقاطع الفيديو مفتوح الآن! هذه هي فرصتك لعرض إبداعك وأصالتك وشغفك وتفسيرك لموضوع هذه الدورة. يمكنك الوصول أدناه إلى أحد نماذج التسجيل الثلاثة، وتنقسم المشاركات إلى فئات الإنجليزية والفرنسية والعربية (يجوز لكل مشارك الدخول في فئة واحدة فقط). سيكون لكل فئة ثلاثة متأهلين للتصفيات النهائية على المنصة، وسيتم تقديم الجوائز! سيحصل جميع المشاركين الذين تتوافق مشاركاتهم مع لوائح استخدام الذكاء الاصطناعي على شهادة مشاركة. يرجى قراءة اللوائح وشبكة التقييم المتاحة على هذه الصفحة بعناية قبل إرسال مقطع الفيديو الخاص بك. يُغلق باب التقديم في 30 أكتوبر 2026، الساعة 23:59.</p>
+
+            <h4 class="arabic-text" style="text-align: right; color: var(--accent); margin-top: 1.5rem; margin-bottom: 0.5rem;">لوائح مسابقة مقاطع الفيديو:</h4>
+            <div style="margin-bottom: 1.5rem;">
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن تتراوح مدة مقاطع الفيديو بين 4-5 دقائق، مع خصم نقاط عن كل 15 ثانية تزيد أو تقل عن النطاق المحدد.</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يُقبل تقديم الطلبات باللغة الإنجليزية أو الفرنسية أو العربية (يرجى الرجوع إلى النموذج المخصص للإرسال).</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن تكون جميع الأعمال المقدمة أصلية. <strong style="color: red; font-weight: bold;">يُحظر تمامًا استخدام أدوات الذكاء الاصطناعي التوليدي.</strong></p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن تكون مقاطع الفيديو ذات صلة بالموضوع الكسوف بين العلم والتراث.</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">أي ترشيح لا يلتزم بهذه اللوائح قد يؤدي إلى الاستبعاد.</p>
+                <p class="arabic-text" style="text-align: right; margin-bottom: 0.5rem;">يجب أن يكون المشاركون الذين تم اختيارهم مسبقًا متاحين يوم الجمعة 13 نوفمبر 2026، من الساعة 1:00 مساءً إلى 4:30 مساءً.</p>
+            </div>
+
+            <h4 class="arabic-text" style="text-align: right; color: var(--accent); margin-bottom: 1rem;">شبكة التقييم</h4>
+            <p class="arabic-text" style="text-align: right;">سيتم تقييم مقطع الفيديو الخاص بك من قبل لجنة التحكيم الرسمية وفقًا للمعايير الواردة أدناه. توضح شبكة التقييم الجوانب الرئيسية التي تؤخذ في الاعتبار أثناء التقييم، بإجمالي 40 نقطة. يرجى قراءة هذه المعايير بعناية قبل إرسال مقطع الفيديو الخاص بك.</p>
+
+            <table class="rubric-table rubric-table-ar arabic-text">
+                <thead>
+                    <tr>
+                        <th>المعيار</th>
+                        <th>محور التقييم</th>
+                        <th>الوزن</th>
+                        <th>النقطة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 المحتوى ومدى ارتباطه بالموضوع</td>
+                        <td>مدى ملاءمة الموضوع، ودقة المحتوى، والقيمة المضافة.</td>
+                        <td>x2</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>2 الإبداع والأصالة</td>
+                        <td>أصالة المفهوم، والسرد، والنهج الفني، والأفكار المبتكرة.</td>
+                        <td>x2</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>3 الجودة البصرية</td>
+                        <td>التكوين البصري، والمونتاج، وتماسك الصور وفعاليتها.</td>
+                        <td>x2</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>4 جودة الصوت</td>
+                        <td>وضوح السرد، والموسيقى، والمؤثرات الصوتية، وجودة الصوت بشكل عام.</td>
+                        <td>x1</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                    <tr>
+                        <td>5 مدة الفيديو</td>
+                        <td>الالتزام بشرط المدة المحددة التي تتراوح بين 4-5 دقائق، مع خصم نقاط عن كل 15 ثانية تزيد أو تقل عن النطاق المحدد.</td>
+                        <td>x1</td>
+                        <td>5 نقاط</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="https://forms.gle/w9HFk4XcS9GRximc9" target="_blank" class="btn arabic-text" style="display: inline-block; font-size: 1.1rem; width: 100%; margin-top: 1rem;">الانتقال إلى النموذج</a>
+        </div>
+    </div>
+
+    <div id="videoModal-fr" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('videoModal-fr')">×</span>
+            <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); text-align: left;">Compétition de montage vidéo</h3>
+            
+            <p style="text-align: left;">Dans le cadre de la 14ème Édition du Festival d'Astronomie «Éclipses: Entre Science et Héritage», nous avons le plaisir d'annoncer que les inscriptions au Concours de Montage Vidéo sont désormais ouvertes!</p>
+            <p style="text-align: left;">C'est l'occasion de mettre en valeur votre créativité, originalité, passion et votre interprétation du thème de cette édition.</p>
+            <p style="text-align: left;">Vous trouverez ci-dessous les formulaires d'inscription; et les participations sont réparties en trois catégories: Anglais, Français et Arabe (Chaque participant ne peut concourir que dans une seule catégorie).</p>
+            <p style="text-align: left;">Trois finalistes monteront sur le podium pour chaque catégorie, et des prix seront remis! Tous les participants dont la vidéo respecte le règlement en accord avec l'IA recevront une attestation de participation.</p>
+            <p style="text-align: left;">Veuillez lire attentivement le règlement du concours et la grille d'évaluation disponibles sur cette page avant de soumettre votre vidéo.</p>
+            <p style="text-align: left; margin-bottom: 1.5rem;">La date limite de soumission est fixée au 30 Octobre 2026, à 23h59.</p>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 0.5rem;">RÈGLEMENT DU CONCOURS DE MONTAGE VIDÉO :</h4>
+            <ul>
+                <li>Les vidéos doivent durer entre 4 et 5 minutes, avec une déduction de points pour chaque tranche de 15 secondes au-dessus ou en dessous de la fourchette indiquée.</li>
+                <li>Les candidatures sont acceptées en anglais, en français ou en arabe (veuillez-vous reporter au formulaire correspondant pour l'envoi).</li>
+                <li>Toutes les œuvres soumises doivent être originales. <strong style="color: red; font-weight: bold;">L'utilisation d'outils d'IA générative est strictement interdite.</strong></li>
+                <li>Les vidéos doivent être en rapport avec le thème : « Les Éclipses: Entre Science et Héritage »</li>
+                <li>Toute candidature ne respectant pas le présent règlement pourra entraîner une disqualification.</li>
+                <li>Les participants présélectionnés doivent être disponibles le vendredi 13 novembre 2026, de 13h à 16h30.</li>
+            </ul>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 1rem;">Grille d'évaluation</h4>
+            <p style="text-align: left;">Votre vidéo sera évaluée par le jury officiel selon les critères ci-dessous. La grille d'évaluation présente les principaux aspects pris en compte lors de l'évaluation, pour un total de 40 points. Veuillez lire attentivement ces critères avant d'envoyer votre vidéo.</p>
+
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Critère</th>
+                        <th>Éléments évalués</th>
+                        <th>Pondération</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Content & Relevance</td>
+                        <td>Pertinence par rapport au thème, exactitude du contenu et valeur ajoutée.</td>
+                        <td>×2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>2. Creativity & Originality</td>
+                        <td>Originalité du concept, narration, approche artistique et idées novatrices.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>3. Visual Quality</td>
+                        <td>Composition visuelle, montage, cohérence et efficacité des images.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>4. Sound & Audio Quality</td>
+                        <td>Clarté de la narration, musique, effets sonores et qualité audio globale.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>5. Duration</td>
+                        <td>Respect de la durée requise de 4 à 5 minutes, avec une déduction de points pour chaque tranche de 15 secondes au-dessus ou en dessous de la fourchette indiquée.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="https://forms.gle/gsbPakPHaYiLhvQ99" target="_blank" class="btn" style="display: inline-block; width: 100%; margin-top: 1rem;">Accéder au formulaire</a>
+        </div>
+    </div>
+
+    <div id="videoModal-en" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('videoModal-en')">×</span>
+            <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); text-align: left;">Video Clip Competition</h3>
+            
+            <p style="text-align: left;">As part of the 14th Edition of the Astronomy Festival: «Eclipses: Between Science and Heritage», we are happy to announce that applications for the Video Clip Competition are now open!</p>
+            <p style="text-align: left;">This is your opportunity to showcase your creativity, originality, passion, and interpretation of this edition's theme.</p>
+            <p style="text-align: left;">You can access below one of the three registration forms, and submissions are divided into English, French, and Arabic categories (Each participant may enter only one category).</p>
+            <p style="text-align: left;">Each category will have three finalists on the podium, and prizes will be given! All participants whose submission complies with the Al-use regulations will receive a certificate of participation.</p>
+            <p style="text-align: left;">Please carefully read the regulations and evaluation rubric available on this page before submitting your video.</p>
+            <p style="text-align: left; margin-bottom: 1.5rem;">Submissions close on October 30th, 2026, at 23:59.</p>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 0.5rem;">VIDEO CLIP COMPETITION REGULATIONS:</h4>
+            <ul>
+                <li>Videos must be 4-5 minutes long, with points deduction for every 15 seconds above or below the specified range.</li>
+                <li>Submissions are accepted in English, French, or Arabic (please refer to the corresponding form for submission).</li>
+                <li>All submitted work must be original. <strong style="color: red; font-weight: bold;">The use of generative AI tools is strictly prohibited.</strong></li>
+                <li>Videos must be relevant to the theme: «Eclipses: Between Science and Heritage»</li>
+                <li>Any submission that violates these regulations may result in disqualification.</li>
+                <li>Preselected participants must be available on Friday, 13th November 2026, from 13:00 to 19:30.</li>
+            </ul>
+
+            <h4 style="text-align: left; color: var(--accent); margin-bottom: 1rem;">Evaluation Rubric</h4>
+            <p style="text-align: left;">Your video will be evaluated by the official jury according to the criteria below. The rubric reflects the main aspects considered during the evaluation, with a total score of 40 points. Please review the criteria carefully before submitting your video.</p>
+
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterion</th>
+                        <th>Evaluation Focus</th>
+                        <th>Weight</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Content & Relevance</td>
+                        <td>Relevance to the theme, accuracy of the content, and added value.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>2. Creativity & Originality</td>
+                        <td>Originality of the concept, storytelling, artistic approach, and innovative ideas.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>3. Visual Quality</td>
+                        <td>Visual composition, editing, coherence, and effectiveness of imagery.</td>
+                        <td>x2</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>4. Sound & Audio Quality</td>
+                        <td>Clarity of narration, music, sound effects, and overall audio quality.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                    <tr>
+                        <td>5. Duration</td>
+                        <td>Respect of the 4-5-minutes requirement with points deduction for every 15 seconds above or below the specified range.</td>
+                        <td>x1</td>
+                        <td>5PTS</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="https://forms.gle/582dszPoEDwYbdq37" target="_blank" class="btn" style="display: inline-block; width: 100%; margin-top: 1rem;">Proceed to form</a>
+        </div>
+    </div>
+
     <script>
+        let currentCompetition = '';
+
+        function openLangModal(comp, e) {
+            e.preventDefault();
+            currentCompetition = comp;
+            document.getElementById('langModal').classList.add('active');
+        }
+
+        function selectLanguage(lang) {
+            document.getElementById('langModal').classList.remove('active');
+            document.getElementById(currentCompetition + 'Modal-' + lang).classList.add('active');
+        }
+
         function showToast(e) {
             e.preventDefault();
             var toast = document.getElementById("toast");
             toast.className = "toast show";
             setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
         }
 
         document.addEventListener("DOMContentLoaded", () => {
