@@ -775,6 +775,132 @@
         .rubric-table-ar {
             text-align: right;
         }
+
+        /* ===== Programme / Schedule ===== */
+        .sch-wrap {
+            background: rgba(26, 30, 41, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: clamp(1rem, 2.5vw, 2rem);
+        }
+        .sch-tabs {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .sch-tab {
+            flex: 1 0 auto;
+            min-width: 76px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.1rem;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 5px;
+            padding: 0.55rem 0.8rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .sch-tab-day { font-weight: 600; font-size: clamp(0.8rem, 1.8vw, 0.95rem); }
+        .sch-tab-date { font-size: 0.75rem; }
+        .sch-tab:hover { color: var(--accent); border-color: var(--accent); }
+        .sch-tab[aria-selected="true"] {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-main);
+        }
+        .sch-tab:focus-visible, .sch-wrap a:focus-visible {
+            outline: 2px solid var(--accent-hover);
+            outline-offset: 2px;
+        }
+        .sch-day-title {
+            font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+        }
+        .sch-day-title span {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 0.8em;
+            margin-left: 0.5rem;
+        }
+        .sch-list { list-style: none; }
+        .sch-event {
+            display: grid;
+            grid-template-columns: 9.5rem 1fr minmax(9rem, 14rem);
+            gap: 0.4rem 1.2rem;
+            padding: 0.9rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .sch-event:first-child { border-top: none; }
+        .sch-time {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+            font-variant-numeric: tabular-nums;
+        }
+        .sch-allday .sch-time { font-weight: 400; font-style: italic; }
+        .sch-title {
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            font-weight: 700;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.4rem 0.7rem;
+        }
+        .sch-badge {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 20px;
+            padding: 0.05rem 0.6rem;
+        }
+        .sch-talk {
+            font-weight: 600;
+            margin-top: 0.25rem;
+            font-size: clamp(0.9rem, 1.7vw, 1rem);
+        }
+        .sch-talk[dir="rtl"] { font-size: clamp(1rem, 1.9vw, 1.1rem); }
+        .sch-sub {
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            margin-top: 0.15rem;
+        }
+        .sch-items {
+            list-style: disc;
+            margin: 0.3rem 0 0 1.1rem;
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        }
+        .sch-loc {
+            display: flex;
+            gap: 0.4rem;
+            align-items: flex-start;
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        }
+        .sch-pin { color: var(--accent); }
+        .sch-table-wrap { overflow-x: auto; margin-top: 0.7rem; }
+        .sch-table { margin-bottom: 0; min-width: 380px; }
+        .sch-note {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            color: var(--text-muted);
+            font-size: clamp(0.78rem, 1.5vw, 0.88rem);
+            text-align: left;
+        }
+        @media (max-width: 767px) {
+            .sch-event { grid-template-columns: 1fr; gap: 0.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -793,6 +919,7 @@
     <nav>
         <a href="#home">Accueil</a>
         <a href="#about">À propos</a>
+        <a href="#schedule">Programme</a>
         <a href="#gallery">Éditions Précédentes</a>
         <a href="#sponsors">Partenaires</a>
         <a href="#contact">Contact</a>
@@ -828,6 +955,317 @@
             </div>
             
             <img src="./logos/final poster.jpeg" alt="Affiche Finale du Festival" class="poster-img fade-in">
+        </div>
+
+        <a href="#schedule" class="nav-arrow fade-in">↓</a>
+    </section>
+
+    <section id="schedule">
+        <h2 class="section-title fade-in">Programme</h2>
+        <div class="sch-wrap fade-in">
+            <div class="sch-tabs" role="tablist" aria-label="Jours du festival">
+<button type="button" class="sch-tab" role="tab" id="sch-tab-1" aria-controls="sch-panel-1" aria-selected="true" data-date="2026-11-12" tabindex="0"><span class="sch-tab-day">Jour 1</span><span class="sch-tab-date">12 nov</span></button>
+<button type="button" class="sch-tab" role="tab" id="sch-tab-2" aria-controls="sch-panel-2" aria-selected="false" data-date="2026-11-13" tabindex="-1"><span class="sch-tab-day">Jour 2</span><span class="sch-tab-date">13 nov</span></button>
+<button type="button" class="sch-tab" role="tab" id="sch-tab-3" aria-controls="sch-panel-3" aria-selected="false" data-date="2026-11-14" tabindex="-1"><span class="sch-tab-day">Jour 3</span><span class="sch-tab-date">14 nov</span></button>
+<button type="button" class="sch-tab" role="tab" id="sch-tab-4" aria-controls="sch-panel-4" aria-selected="false" data-date="2026-11-15" tabindex="-1"><span class="sch-tab-day">Jour 4</span><span class="sch-tab-date">15 nov</span></button>
+<button type="button" class="sch-tab" role="tab" id="sch-tab-5" aria-controls="sch-panel-5" aria-selected="false" data-date="2026-11-16" tabindex="-1"><span class="sch-tab-day">Jour 5</span><span class="sch-tab-date">16 nov</span></button>
+            </div>
+<div class="sch-panel" role="tabpanel" id="sch-panel-1" aria-labelledby="sch-tab-1">
+<h3 class="sch-day-title">Jour 1 <span>12 novembre 2026</span></h3>
+<ul class="sch-list">
+<li class="sch-event">
+<div class="sch-time">19:00 – 20:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Cérémonie d&#x27;Ouverture
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Auditorium 7, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">19:00 – 20:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Conférence Publique
+</h4>
+<p class="sch-talk">Le Phénomène des Éclipses</p>
+<p class="sch-sub">Mr. Vincent Hoyer</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Auditorium 7, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">21:30 – 00:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Observation des Étoiles
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Old Soccer Field, AUI</span></div>
+</li>
+</ul>
+</div>
+<div class="sch-panel" role="tabpanel" id="sch-panel-2" aria-labelledby="sch-tab-2" hidden>
+<h3 class="sch-day-title">Jour 2 <span>13 novembre 2026</span></h3>
+<ul class="sch-list">
+<li class="sch-event sch-allday">
+<div class="sch-time">Toute la journée</div>
+<div class="sch-body">
+<h4 class="sch-title">Exposition Artistique d&#x27;Astronomie
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>M6L Library, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">10:00 – 12:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Atelier de Calligraphie Kufic
+<span class="sch-badge">Inscription requise</span>
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Zen Space, Building 7, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">13:00 – 16:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Compétition de Montage de Vidéo
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Auditorium 7, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">17:00 – 18:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Conférence Publique
+</h4>
+<p class="sch-talk" lang="en">Einstein&#x27;s Theory of Gravity: The Cosmological Constant Puzzle and the Dynamics of Gravitational Waves</p>
+<p class="sch-sub">Mr. Mohammed El Ouali</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Event Room, Building 2, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">21:30 – 23:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Atelier de Peinture sur Verre
+<span class="sch-badge">Inscription requise</span>
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Event Room, Building 2, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">21:30 – 00:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Observation des Étoiles
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Old Soccer Field, AUI</span></div>
+</li>
+</ul>
+</div>
+<div class="sch-panel" role="tabpanel" id="sch-panel-3" aria-labelledby="sch-tab-3" hidden>
+<h3 class="sch-day-title">Jour 3 <span>14 novembre 2026</span></h3>
+<ul class="sch-list">
+<li class="sch-event">
+<div class="sch-time">9:00 – 12:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Formation d&#x27;Éclipse : Montreurs d&#x27;Éclipses
+<span class="sch-badge">Inscription requise</span>
+</h4>
+<p class="sch-sub">Mr. Vincent Hoyer et Mr. Abdelhafid Bani</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Event Room, Building 2, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">9:00 – 13:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Compétition d&#x27;Art Oratoire
+</h4>
+<p class="sch-sub">Performances</p>
+<div class="sch-table-wrap"><table class="rubric-table sch-table">
+<thead><tr><th>Horaire</th><th>Âge</th><th>Arabe</th><th>Français</th><th>Anglais</th></tr></thead>
+<tbody>
+<tr><td>9:00 – 11:00</td><td>10 – 15 ans</td><td>AUD 7</td><td>AUD 4</td><td>AUD 8b</td></tr>
+<tr><td>11:30 – 13:30</td><td>16 – 22 ans</td><td>AUD 7</td><td>AUD 4</td><td>AUD 8b</td></tr>
+</tbody></table></div>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Auditorium 4-7-8b, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">14:00 – 15:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Annonce des Gagnants d&#x27;Art Oratoire
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Auditorium 4, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">16:00 – 20:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Stands et Activités
+</h4>
+<ul class="sch-items"><li>Planétarium avec Mr. Abdellatif Zridi</li><li>Stands d&#x27;Associations</li><li>Stand de Calligraphie</li><li>Stand de Réalité Virtuelle</li></ul>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Place de la Poste, Downtown</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">16:00 – 20:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Exposition Artistique d&#x27;Astronomie
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Conference Hall, Downtown</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">17:30 – 18:15</div>
+<div class="sch-body">
+<h4 class="sch-title">Conférence Publique
+</h4>
+<p class="sch-talk arabic-text" dir="rtl" lang="ar">ظاهرتا الكسوف والخسوف بين العلم والارث: من الماضي الى الحاضر</p>
+<p class="sch-sub">Mr. Zine El Abidine Houssaini</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Conference Hall, Downtown</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">18:30 – 19:15</div>
+<div class="sch-body">
+<h4 class="sch-title">Conférence Publique
+</h4>
+<p class="sch-talk arabic-text" dir="rtl" lang="ar">الكسوف والخسوف: نظرة مختلفة</p>
+<p class="sch-sub">Dr. Hassan Talibi</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Conference Hall, Downtown</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">20:00 – 20:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Certificats pour les Contributeurs
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Conference Hall, Downtown</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">21:30 – 00:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Observation des Étoiles
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Place de la Couronne, Downtown</span></div>
+</li>
+</ul>
+</div>
+<div class="sch-panel" role="tabpanel" id="sch-panel-4" aria-labelledby="sch-tab-4" hidden>
+<h3 class="sch-day-title">Jour 4 <span>15 novembre 2026</span></h3>
+<ul class="sch-list">
+<li class="sch-event sch-allday">
+<div class="sch-time">Toute la journée</div>
+<div class="sch-body">
+<h4 class="sch-title">Exposition Artistique d&#x27;Astronomie
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>M6L Library, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">9:00 – 11:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Kids&#x27; Astronomy Workshop
+<span class="sch-badge">Inscription requise</span>
+</h4>
+<p class="sch-sub">ATTARIK Foundation – Ages 7-14</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Zen Space, Building 7, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">9:00 – 12:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Formation d&#x27;Éclipses : Montreurs d&#x27;Éclipses
+<span class="sch-badge">Inscription requise</span>
+</h4>
+<p class="sch-sub">Mr. Vincent Hoyer et Mr. Abdelhafid Bani</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Event Room, Building 2, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">12:00 – 13:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Observation des Taches Solaires
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>À côté d&#x27;Event Room, Building 2, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">12:30 – 14:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Atelier de Peinture sur Verre
+<span class="sch-badge">Inscription requise</span>
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Event Room, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">14:00 – 18:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Projection de Films sur le Thème d&#x27;Astronomie
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>NAB Hall, AUI</span></div>
+</li>
+</ul>
+</div>
+<div class="sch-panel" role="tabpanel" id="sch-panel-5" aria-labelledby="sch-tab-5" hidden>
+<h3 class="sch-day-title">Jour 5 <span>16 novembre 2026</span></h3>
+<ul class="sch-list">
+<li class="sch-event sch-allday">
+<div class="sch-time">Toute la journée</div>
+<div class="sch-body">
+<h4 class="sch-title">Exposition Artistique d&#x27;Astronomie
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>M6L Library, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">14:00 – 17:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Projection d&#x27;un Documentaire
+</h4>
+<p class="sch-sub">Il y aura un Q&amp;A vers la fin, petits prix y compris</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>NAB Hall, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">17:30 – 18:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Conférence Publique
+</h4>
+<p class="sch-talk" lang="en">Cosmic Expansion From Discovery to Equations</p>
+<p class="sch-sub">Dr. Lhoussaine Tenghiri</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>NAB Hall, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">19:00 – 20:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Panel Public
+</h4>
+<p class="sch-talk" lang="en">Eclipses: Between Science, Heritage, Religion, &amp; Economy</p>
+<p class="sch-sub">Dr. Naeem Nisar Sheikh (modérateur)</p>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>NAB Hall, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">20:30 – 22:30</div>
+<div class="sch-body">
+<h4 class="sch-title">Atelier de Réalité Virtuelle
+<span class="sch-badge">Inscription requise</span>
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>Zen Space, Building 7, AUI</span></div>
+</li>
+<li class="sch-event">
+<div class="sch-time">21:30 – 00:00</div>
+<div class="sch-body">
+<h4 class="sch-title">Chasse au Trésor
+</h4>
+</div>
+<div class="sch-loc"><span class="sch-pin" aria-hidden="true">⌖</span><span>NAB Hall, AUI</span></div>
+</li>
+</ul>
+</div>
         </div>
 
         <a href="#gallery" class="nav-arrow fade-in">↓</a>
@@ -1389,6 +1827,38 @@
 
     <script>
         let currentCompetition = '';
+
+        (function () {
+            const tabs = Array.from(document.querySelectorAll('.sch-tab'));
+            if (!tabs.length) return;
+
+            function selectTab(tab, focus) {
+                tabs.forEach(t => {
+                    const on = t === tab;
+                    t.setAttribute('aria-selected', on ? 'true' : 'false');
+                    t.tabIndex = on ? 0 : -1;
+                    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+                });
+                if (focus) tab.focus();
+            }
+
+            tabs.forEach((tab, i) => {
+                tab.addEventListener('click', () => selectTab(tab, false));
+                tab.addEventListener('keydown', ev => {
+                    let n = null;
+                    if (ev.key === 'ArrowRight') n = (i + 1) % tabs.length;
+                    if (ev.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+                    if (ev.key === 'Home') n = 0;
+                    if (ev.key === 'End') n = tabs.length - 1;
+                    if (n !== null) { ev.preventDefault(); selectTab(tabs[n], true); }
+                });
+            });
+
+            // Open today's programme during the festival (Morocco time, UTC+1 year-round)
+            const today = new Date(Date.now() + 3600000).toISOString().slice(0, 10);
+            const current = tabs.find(t => t.dataset.date === today);
+            if (current) selectTab(current, false);
+        })();
 
         function openLangModal(comp, e) {
             e.preventDefault();
